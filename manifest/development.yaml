@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-notification
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: email-notification
+  template:
+    metadata:
+      labels:
+        app: email-notification
+    spec:
+      containers:
+      - name: email-notification
+        image: docker.io/lostkid24/myhtml:latest
+        ports:
+        - containerPort: 80
